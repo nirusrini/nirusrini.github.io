@@ -30,17 +30,26 @@
  </a>
   
 <script type="text/javascript">
-    document.getElementById('LoginWithAmazon').onclick = function() {
-        options = {}
-        options.scope = 'profile';
-        options.popup = false;
-        options.scope_data = {
-            'profile' : {'essential': false} 
-        };
-        amazon.Login.authorize(options,
-            'https://nirusrini.github.io/return');
-        return false;
-    };
+document.getElementById('LoginWithAmazon').onclick = function() {
+loginOptions = {scope: "profile postal_code payments:widget payments:shipping_address", popup: true};
+amazon.Login.authorize(loginOptions,  function(authResp) {
+  if ( authResp.error ) {
+    alert('oauth error ' + authResp.error);
+    return;
+  }
+  else {
+    console.dir('access_token= ' + authResp.access_token);
+    amazon.Login.retrieveProfile(function (profileResp) {
+      // Display profile information.
+      console.dir('CustomerId= ' + profileResp.profile.CustomerId);
+      console.dir('Name= ' + profileResp.profile.Name);
+      console.dir('PostalCode= ' + profileResp.profile.PostalCode);
+      console.dir('PrimaryEmail= ' + profileResp.profile.PrimaryEmail);
+
+    });
+  }
+});
+};
 </script>
 
 </body>
