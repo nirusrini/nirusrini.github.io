@@ -6,21 +6,21 @@
   
   <div id="amazon-root"></div>
    <script type="text/javascript">
-     document.getElementById("amazon-root").onload = function() {myFunction()};
+     document.getElementById("amazon-root").onload = function() {myFunction(document)};
 
     window.onAmazonLoginReady = function() {
       amazon.Login.setClientId('amzn1.application-oa2-client.11ccb03bc056429d94f747df0b79cbb4');
     };
     (function(d) {
-      alert('creating hooks');
+      alert('creating hooks old');
       var a = d.createElement('script'); a.type = 'text/javascript';
       a.async = true; a.id = 'amazon-login-sdk';
       a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
       d.getElementById('amazon-root').appendChild(a);
     })(document);
      
- function myfunction () {
-      alert('creating hooks');
+ function myfunction (d) {
+      alert('creating hooks new');
       var a = d.createElement('script'); a.type = 'text/javascript';
       a.async = true; a.id = 'amazon-login-sdk';
       a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
