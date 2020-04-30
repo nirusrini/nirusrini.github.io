@@ -70,7 +70,7 @@ function getParameterByName(name, url) {
     var a = document.createElement('script'); a.type = 'text/javascript';
     a.async = true; a.id = 'amazon-login-sdk';
     a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
-    d.getElementById('amazon-root').appendChild(a);
+    document.getElementById('amazon-root').appendChild(a);
     amazon.Login.retrieveProfile(accessToken, function(response) {
              alert('Hello, ' + response.profile.Name);
              alert('Your e-mail address is ' + response.profile.PrimaryEmail);
