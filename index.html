@@ -38,8 +38,10 @@ amazon.Login.authorize(loginOptions,  function(authResp) {
     return;
   }
   else {
-    console.dir('access_token= ' + authResp.access_token);
+    console.log('access_token= ' + authResp.access_token);
+ 
     amazon.Login.retrieveProfile(function (profileResp) {
+      alert('Niru got the response');
       console.dir('CustomerId= ' + profileResp.profile.CustomerId);
       console.dir('Name= ' + profileResp.profile.Name);
       console.dir('PostalCode= ' + profileResp.profile.PostalCode);
