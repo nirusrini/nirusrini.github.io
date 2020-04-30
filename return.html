@@ -24,6 +24,8 @@ font-family: sans-serif;
   
   
 <script type="text/javascript">
+  var display= null;
+  var access_token = null;
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -33,12 +35,13 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-  var display=getParameterByName("error_description");
+  display=getParameterByName("error_description");
   if (display != null) {
   document.write("<p>Access Denied!</p>");
   }
   else {
-    display = getParameterByName("access_token");
+    accessToken = getParameterByName("access_token");
+    alert('Hello the access token is ' + accessToken);
     retrieveProfile(display);
   }
 </script>
