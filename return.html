@@ -28,6 +28,7 @@ font-family: sans-serif;
   var accessToken = null;
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
+    alert("hello niru the url is " + url);
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
