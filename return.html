@@ -38,7 +38,8 @@ function getParameterByName(name, url) {
   function getAccessToken() {
     var url = window.location;
 
-   var access_token = new URLSearchParams(url.search).get('access_token');
+    var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
+  
   }
   
   display=getParameterByName("error_description");
