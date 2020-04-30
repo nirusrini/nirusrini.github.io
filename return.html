@@ -21,8 +21,9 @@
    function retrieveProfile(){
     var url = window.location;
     var access_token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
-    alert("XXXx  retrieving profile with " + access_token) 
+    alert("XXXx  retrieving profile with " + access_token)
     amazon.Login.retrieveProfile(access_token, function(response) {
+           alert("XXXx  recieved response ") 
              alert('Hello, ' + response.profile.Name);
              alert('Your e-mail address is ' + response.profile.PrimaryEmail);
              alert('Your unique ID is ' + response.profile.CustomerId);
