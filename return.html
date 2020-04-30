@@ -7,7 +7,6 @@ font-family: sans-serif;
 }
 </style>
 <body>
-<h1 id = "Response">You have successfully logged on with Amazon!</h1>
   
 <script type="text/javascript">
 function getParameterByName(name, url) {
@@ -20,7 +19,12 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
   var display=getParameterByName("error_description");
-  document.write("<p>"+display+"</p>");
+  if (display != null) {
+  document.write("<p>Access Denied!</p>");
+  }
+  else {
+  document.write("<p>You have successfully logged on with Amazon Credentials!</p>")
+  }
 </script>
 </body>
 </html>
