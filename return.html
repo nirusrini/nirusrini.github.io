@@ -26,10 +26,9 @@
 
  
  <script type="text/javascript">
+  function retrieveProfile(){
     var url = window.location;
     var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
-    retrieveProfile(token)
-  function retrieveProfile(token){
     alert("XXXx  retrieving profile with " + access_token) 
     amazon.Login.retrieveProfile(access_token, function(response) {
              alert('Hello, ' + response.profile.Name);
