@@ -39,7 +39,8 @@ function getParameterByName(name, url) {
     var url = window.location;
 
     var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
-  
+    alert('PPP Here you go' + token);
+    return token;
   }
   
   display=getParameterByName("error_description");
