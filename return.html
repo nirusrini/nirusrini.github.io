@@ -28,7 +28,6 @@ font-family: sans-serif;
   var accessToken = null;
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
-    alert("hello niru the url is " + url);
     name = name.replace(/[\[\]]/g, '\\$&');
     var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
@@ -36,14 +35,20 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
+  function getAccessToken() {
+    var url = window.location;
+
+   var access_token = new URLSearchParams(url.search).get('access_token');
+  }
+  
   display=getParameterByName("error_description");
   if (display != null) {
   document.write("<p>Access Denied!</p>");
   }
   else {
     accessToken = getParameterByName("access_token");
-    alert('Hello NNN the access token is ' + accessToken);
-    retrieveProfile(display);
+    alert('Hello NNN the access token is ' + getAccessToken());
+    retrieveProfile(getAccessToken());
   }
 </script>
 </body>
