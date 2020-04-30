@@ -49,6 +49,7 @@ function getParameterByName(name, url) {
   }
   else {
     accessToken = getParameterByName("access_token");
+    alert('Getting profile with token' + accessToken);
     retrieveProfile(getAccessToken());
   }
 </script>
