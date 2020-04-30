@@ -33,7 +33,7 @@ function getParameterByName(name, url) {
     var url = window.location;
 
     var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
-   alert('returning token ' + token);
+   //alert('returning token ' + token);
 
     return token;
   }
@@ -44,7 +44,7 @@ function getParameterByName(name, url) {
   }
   else {
     accessToken = getAccessToken();
-    alert('Not Getting profile with token ' + accessToken);
+   // alert('Not Getting profile with token ' + accessToken);
     amazon.Login.retrieveProfile(accessToken, function(response) {
              alert('Hello, ' + response.profile.Name);
              alert('Your e-mail address is ' + response.profile.PrimaryEmail);
