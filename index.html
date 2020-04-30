@@ -32,6 +32,7 @@
     document.getElementById('LoginWithAmazon').onclick = function() {
         options = {}
         options.scope = 'profile';
+        options.popup = false;
         options.scope_data = {
             'profile' : {'essential': false} 
         };
