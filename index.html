@@ -30,7 +30,7 @@
  </a>
   
 <script type="text/javascript">
-document.getElementById('LoginWithAmazon').onclick = function() {
+/*document.getElementById('LoginWithAmazon').onclick = function() {
 loginOptions = {scope: "profile postal_code payments:widget payments:shipping_address", popup: true};
 amazon.Login.authorize(loginOptions,  function(authResp) {
   if ( authResp.error ) {
@@ -40,7 +40,6 @@ amazon.Login.authorize(loginOptions,  function(authResp) {
   else {
     console.dir('access_token= ' + authResp.access_token);
     amazon.Login.retrieveProfile(function (profileResp) {
-      // Display profile information.
       console.dir('CustomerId= ' + profileResp.profile.CustomerId);
       console.dir('Name= ' + profileResp.profile.Name);
       console.dir('PostalCode= ' + profileResp.profile.PostalCode);
@@ -49,7 +48,13 @@ amazon.Login.authorize(loginOptions,  function(authResp) {
     });
   }
 });
-};
+};*/
+  
+ document.getElementById('LoginWithAmazon').onclick = function() {
+       loginOptions = {scope: "profile postal_code payments:widget payments:shipping_address", popup: false};
+        amazon.Login.authorize(loginOptions, 'https://nirusrini.github.io/return');
+        return false;
+    };
 </script>
 
 </body>
