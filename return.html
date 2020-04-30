@@ -40,6 +40,8 @@ function getParameterByName(name, url) {
     var url = window.location;
 
     var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
+   alert('returning token ' + token);
+
     return token;
   }
   
@@ -48,8 +50,8 @@ function getParameterByName(name, url) {
   document.write("<p>Access Denied!</p>");
   }
   else {
-    accessToken = getParameterByName("access_token");
-    alert('Getting profile with token' + accessToken);
+    accessToken = getAccessToken();
+    alert('Getting profile with token ' + accessToken);
     retrieveProfile(getAccessToken());
   }
 </script>
