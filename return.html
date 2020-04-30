@@ -19,14 +19,17 @@
    
 </script>
 
-<br>
+ <br>
  <br>
  <br>
  <br>
 
  
  <script type="text/javascript">
-  function retrieveProfile(access_token){
+    var url = window.location;
+    var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
+    retrieveProfile(token)
+  function retrieveProfile(token){
     alert("XXXx  retrieving profile with " + access_token) 
     amazon.Login.retrieveProfile(access_token, function(response) {
              alert('Hello, ' + response.profile.Name);
@@ -37,48 +40,5 @@
          });
    }
  </script>
-  
-  
-<script type="text/javascript">
-  var display= null;
-  var accessToken = null;
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, '\\$&');
-    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, ' '));
-}
-  function getAccessToken() {
-    var url = window.location;
-
-    var token = new URL(url).hash.split('&').filter(function(el) { if(el.match('access_token') !== null) return true; })[0].split('=')[1];  
-   //alert('returning token ' + token);
-
-    return token;
-  }
-  
-  display=getParameterByName("error_description");
-  if (display != null) {
-  document.write("<p>Access Denied!</p>");
-  }
-  else {
-    accessToken = getAccessToken();
-   // alert('Not Getting profile with token ' + accessToken);
-    var a = document.createElement('script'); a.type = 'text/javascript';
-    a.async = true; a.id = 'amazon-login-sdk';
-    a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
-    document.getElementById('amazon-root').appendChild(a);
-    amazon.Login.retrieveProfile(accessToken, function(response) {
-             alert('Hello, ' + response.profile.Name);
-             alert('Your e-mail address is ' + response.profile.PrimaryEmail);
-             alert('Your unique ID is ' + response.profile.CustomerId);
-             if ( window.console && window.console.log )
-                window.console.log(response);
-         });
-  }
-</script>
 </body>
 </html>
