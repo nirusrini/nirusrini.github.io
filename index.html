@@ -27,15 +27,16 @@
 
     function amazonAuth(response) {
         if (response.error) {
+            alert("Loggin error");
             console.log(response.error);
             return;
         }
         amazon.Login.retrieveProfile(response.access_token, function(response) {
             alert("Logged in");
-            console.log(response);
-            console.log(response.profile.CustomerId);
-
-            console.log(response.profile.PrimaryEmail);
+            alert('Your access token is: ' + access_token);
+			alert('Your name is: ' + response.profile.Name);
+			alert('Your e-mail address is: ' + response.profile.PrimaryEmail);
+			alert('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
 
             var result = response.profile.CustomerId + "|" + response.profile.PrimaryEmail;
             console.log(result);
