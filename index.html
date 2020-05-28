@@ -23,9 +23,6 @@
 
    document.getElementById('LoginWithAmazon').onclick = function() {
       console.log("clicked on login");
-       return false;
-    };
-    window.doLogin = function() {
       options = {};
       options.scope = 'profile';
       amazon.Login.authorize(options, function(response) {
@@ -42,7 +39,6 @@
          });
      });
    };	 
-
 </script>
 </body>
 </html>
