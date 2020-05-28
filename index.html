@@ -65,6 +65,7 @@
     }
 
     document.getElementById('LoginWithAmazon').onclick = function() {
+	console.log("Niru real login");
         options = { scope : 'profile' };
         amazon.Login.authorize(options, amazonAuth);
     };
