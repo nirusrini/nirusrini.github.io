@@ -34,7 +34,7 @@
          amazon.Login.retrieveProfile(response.access_token, function(response) {
              console.log("Retrieving profile");
              console.log('Hello, ' + response.profile.Name);
-             console.log('Your e-mail address is ' + response.profile.PrimaryEmail)
+             console.log('Your e-mail address is ' + response.profile.PrimaryEmail);
              console.log('Your unique ID is ' + response.profile.CustomerId);
              alert('Hello, ' + response.profile.Name);
              alert('Your e-mail address is ' + response.profile.PrimaryEmail);
