@@ -1,50 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-<body>	
-<a href id="LoginWithAmazon">
-    <img border="0" alt="Login with Amazon"
-        src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
-        width="156" height="32" />
- </a>
+<html>
+<head>
+<title>LWA Testing</title>
 
-<div id="amazon-root"></div>
- <script type="text/javascript">
+</head>
+<body>
+	<div class="container">
+		<div id='cdl-info' class=''>
+			<h1>Test LWA BP</h1>
+			<p>Welcome to testing!</p>
+			<p>Thanks!</p>
+		</div>
 
-    window.onAmazonLoginReady = function() {
-      console.log("NIru login ready");
-      amazon.Login.setClientId('amzn1.application-oa2-client.11ccb03bc056429d94f747df0b79cbb4');
-    };
-    (function(d) {
-      var a = d.createElement('script'); a.type = 'text/javascript';
-      a.async = true; a.id = 'amazon-login-sdk';
-      a.src = 'https://assets.loginwithamazon.com/sdk/na/login1.js';
-      d.getElementById('amazon-root').appendChild(a);
-    })(document);
 
-    document.getElementById('LoginWithAmazon').onclick = function() {
-       console.log("Clicked the login");
-       setTimeout(window.doLogin, l);
-       return false;
-    };
-    window.doLogin = function() {
-      console.log("Inside window login");
-      options = {};
-      options.scope = 'profile';
-      amazon.Login.authorize(options, function(response) {
-         console.log("inside authorize"); 
-         if ( response.error ) {
-             alert('oauth error ' + response.error);
-         return;
-         }
-         amazon.Login.retrieveProfile(response.access_token, function(response) {
-             alert('Hello, ' + response.profile.Name);
-             alert('Your e-mail address is ' + response.profile.PrimaryEmail);
-             alert('Your unique ID is ' + response.profile.CustomerId);
-             if ( window.console && window.console.log )
-                window.console.log(response);
-         });
-     });
-   };
-</script>
+		<div id="amazon-root"></div>
+		<script type="text/javascript">
+			window.onAmazonLoginReady = function() {
+				amazon.Login.setClientId('amzn1.application-oa2-client.11ccb03bc056429d94f747df0b79cbb4');
+			};
+			(function(d) {
+				var a = d.createElement('script');
+				a.type = 'text/javascript';
+				a.async = true;
+				a.id = 'amazon-login-sdk';
+				a.src = 'https://api-cdn.amazon.com/sdk/login1.js?v=3';
+				d.getElementById('amazon-root').appendChild(a);
+			})(document);
+		</script>
+
+
+		<a href="#" id="LoginWithAmazon"> <img border="0"
+			alt="Login with Amazon"
+			src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_156x32.png"
+			width="156" height="32" />
+		</a>
+
+
+		<script type="text/javascript">
+			document.getElementById('LoginWithAmazon').onclick = function() { // anon #1
+				options = {};
+				options.scope = 'profile';
+				amazon.Login.authorize(options, function(response) { // anon #2
+					if (response.error) {
+						alert('oauth error ' + response.error);
+						return;
+					}
+					access_token = response.access_token;
+					amazon.Login.retrieveProfile(access_token, function(response) { // anon #3
+						if (response.error) {
+							alert('retrieveProfile error, please try to login again ' + response.error);
+							amazon.Login.logout();
+							return;
+						}
+						alert('Your access token is: ' + access_token);
+						alert('Your name is: ' + response.profile.Name);
+					 	alert('Your e-mail address is: ' + response.profile.PrimaryEmail);
+					 	alert('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
+					}); // end, anon #3
+				}); // end, anon #2
+			}; // end, anon #1
+		</script>
+	</div>
+
+
+	<div id="Logout">
+	<a href="#" id="Logout">Logout</a>
+	</div>
+
+	<script type="text/javascript">
+ 		document.getElementById('Logout').onclick = function() {
+ 		amazon.Login.logout();
+	};
+	</script>
 </body>
 </html>
