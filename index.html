@@ -27,6 +27,7 @@
 
     function amazonAuth(response) {
         if (response.error) {
+            console.log("NIRU logged in error");
             alert("Loggin error");
             console.log(response.error);
             return;
@@ -39,6 +40,8 @@
 			alert('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
 
             var result = response.profile.CustomerId + "|" + response.profile.PrimaryEmail;
+		
+	    console.log("NIRU logged in");
             console.log(result);
 
             var hashedRequest = hashCode(result);
