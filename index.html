@@ -11,6 +11,7 @@
  <script type="text/javascript">
 
     window.onAmazonLoginReady = function() {
+      console.log("NIru login ready");
       amazon.Login.setClientId('amzn1.application-oa2-client.11ccb03bc056429d94f747df0b79cbb4');
     };
     (function(d) {
@@ -20,8 +21,8 @@
       d.getElementById('amazon-root').appendChild(a);
     })(document);
 
-	     document.getElementById('LoginWithAmazon').onclick = function() {
-       setTimeout(window.doLogin, l);
+   document.getElementById('LoginWithAmazon').onclick = function() {
+      console.log("clicked on login");
        return false;
     };
     window.doLogin = function() {
