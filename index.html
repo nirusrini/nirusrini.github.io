@@ -52,10 +52,15 @@
 							amazon.Login.logout();
 							return;
 						}
-						alert('Your access token is: ' + access_token);
-						alert('Your name is: ' + response.profile.Name);
-					 	alert('Your e-mail address is: ' + response.profile.PrimaryEmail);
-					 	alert('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
+						alert("You have provided consent. One step closer to being an alexa skill developer");
+						//alert('Your access token is: ' + access_token);
+						//alert('Your name is: ' + response.profile.Name);
+					 	//alert('Your e-mail address is: ' + response.profile.PrimaryEmail);
+					 	//alert('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
+						console.log('Your access token is: ' + access_token);
+						console.log('Your name is: ' + response.profile.Name);
+						console.log('Your e-mail address is: ' + response.profile.PrimaryEmail);
+						console.log('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
 					}); // end, anon #3
 				}); // end, anon #2
 			}; // end, anon #1
