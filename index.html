@@ -74,7 +74,18 @@
         };
 
         function trial(access_token) {
-            alert("YOur access token " + access_token);
+            alert("Your access token " + access_token);
+            $.ajax({
+                url: "https://api.amazonalexa.com/listSkillsForVendorV1",
+                data: {
+                    vendorId: "M2W3LVR1E36R2V",
+                },
+                headers: {
+                    "Authorization":"access_token"
+                }
+            }).then(function(data) {
+                alert("Response received is " + data);
+            });
         }
     </script>
 
