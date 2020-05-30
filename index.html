@@ -50,26 +50,31 @@
         document.getElementById('LoginWithAmazon').onclick = function() {
             options = {};
             options.scope = 'alexa::ask:skills:read';
+            access_token = null;
             amazon.Login.authorize(options, function(response) {
                 if (response.error) {
                     alert('oauth error ' + response.error);
                     return;
                 }
                 access_token = response.access_token;
-                amazon.Login.retrieveProfile(access_token, function(response) {
+                alert("Successfully authorized to read skills");
+               /* amazon.Login.retrieveProfile(access_token, function(response) {
                     if (response.error) {
                         alert('retrieveProfile error, please try to login again ' + response.error);
                         amazon.Login.logout();
                         return;
                     }
-                    console.log("Your response is " + response);
-                    //alert("You have provided consent. One step closer to being an alexa skill developer");
-                   // console.log('Your access token is: ' + access_token);
-                   // console.log('Your name is: ' + response.profile.Name);
-                   // console.log('Your e-mail address is: ' + response.profile.PrimaryEmail);
-                   // console.log('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
-                });
+                    alert("You have provided consent. One step closer to being an alexa skill developer");
+                    console.log('Your access token is: ' + access_token);
+                    console.log('Your name is: ' + response.profile.Name);
+                    console.log('Your e-mail address is: ' + response.profile.PrimaryEmail);
+                    console.log('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
+                });*/
             });
+
+            if (access_token != null) {
+                alert("Your access token is " + access_token);
+            }
         };
     </script>
 </div>
