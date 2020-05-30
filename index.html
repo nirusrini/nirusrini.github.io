@@ -62,11 +62,12 @@
                         amazon.Login.logout();
                         return;
                     }
+                    console.log("Your response is " + response);
                     //alert("You have provided consent. One step closer to being an alexa skill developer");
-                    console.log('Your access token is: ' + access_token);
-                    console.log('Your name is: ' + response.profile.Name);
-                    console.log('Your e-mail address is: ' + response.profile.PrimaryEmail);
-                    console.log('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
+                   // console.log('Your access token is: ' + access_token);
+                   // console.log('Your name is: ' + response.profile.Name);
+                   // console.log('Your e-mail address is: ' + response.profile.PrimaryEmail);
+                   // console.log('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
                 });
             });
         };
