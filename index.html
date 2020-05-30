@@ -57,7 +57,7 @@
                     return;
                 }
                 access_token = response.access_token;
-                alert("Successfully authorized to read skills");
+                alert("Successfully authorized to read skills with token " + access_token);
                /* amazon.Login.retrieveProfile(access_token, function(response) {
                     if (response.error) {
                         alert('retrieveProfile error, please try to login again ' + response.error);
