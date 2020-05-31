@@ -68,7 +68,7 @@
                     console.log('Your e-mail address is: ' + response.profile.PrimaryEmail);
                     console.log('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
                 });*/
-               trial(access_token);
+               trial2(access_token);
             });
         };
 
@@ -80,10 +80,30 @@
                     vendorId: "M2W3LVR1E36R2V",
                 },
                 headers: {
-                    "Authorization": access_token,
+                    "Authorization": access_token
                 }
             }).then(function(data) {
-                console.log("Response received is " + data);
+                console.log("Response received is " + data)
+            });
+        }
+
+        function trial2(access_token) {
+            $.ajax({
+                url: "https://api.amazonalexa.com/v1/skills",
+                data: {
+                    vendorId: "M2W3LVR1E36R2V",
+                },
+                headers: {
+                    "Authorization": access_token
+                },
+                success: function(returnData){
+                    var res = JSON.parse(returnData);
+                    console.log("the response is " + res)
+                },
+                error: function(xhr, status, error){
+                    var errorMessage = xhr.status + ': ' + xhr.statusText
+                    console.log('Error - ' + errorMessage);
+                }
             });
         }
     </script>
