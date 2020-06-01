@@ -113,8 +113,8 @@
             const url = 'https://api.amazonalexa.com/v1/skills';
             var params = "vendorId=M2W3LVR1E36R2V";
 
-            xhr.setRequestHeader("Authorization", access_token)
             xhr.open('GET', url+"?"+params, true);
+            xhr.setRequestHeader("Authorization", access_token)
             xhr.onreadystatechange = function()
             {
                 if(http.readyState == 4 && http.status == 200) {
