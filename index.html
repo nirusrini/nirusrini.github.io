@@ -68,7 +68,7 @@
                     console.log('Your e-mail address is: ' + response.profile.PrimaryEmail);
                     console.log('Your unique ID is ' + response.profile.CustomerId.split(".").pop());
                 });*/
-               trial2(access_token);
+                trial3(access_token);
             });
         };
 
@@ -106,6 +106,23 @@
                     console.log('Error - ' + errorMessage);
                 }
             });
+        }
+
+        function trial3(access_token) {
+            const xhr = new XMLHttpRequest();
+            const url = 'https://api.amazonalexa.com/v1/skills';
+            var params = "vendorId=M2W3LVR1E36R2V";
+
+            xhr.setRequestHeader("Authorization", access_token)
+            xhr.open('GET', url+"?"+params, true);
+            xhr.onreadystatechange = function()
+            {
+                if(http.readyState == 4 && http.status == 200) {
+                    alert(http.responseText);
+                }
+            }
+
+            xhr.send(null);
         }
     </script>
 
