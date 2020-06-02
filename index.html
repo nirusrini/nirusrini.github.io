@@ -75,7 +75,8 @@
         function trial(access_token) {
             alert("Your access token " + access_token);
             $.ajax({
-                url: "https://api.amazonalexa.com/v1/skills",
+                console.log("Calling api gateway")
+                url: "https://qejpiycdrl.execute-api.us-east-2.amazonaws.com/test,
                 data: {
                     vendorId: "M2W3LVR1E36R2V",
                 },
