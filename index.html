@@ -72,8 +72,7 @@
                     "Authorization": access_token
                 }
             }).then(function(data) {
-                console.log("json string is "+  data)
-                console.log("Response received is " + JSON.parse(data))
+                console.log("Response received is " + JSON.stringify(data))
             });
         }
     </script>
