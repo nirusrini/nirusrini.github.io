@@ -115,8 +115,8 @@
                    'Authorization':  access_token
                 },
                 url: "https://08dw30u31c.execute-api.us-east-2.amazonaws.com/Test/{createSkills}",
-                data: JSON.stringify(skillData),
-                dataType: 'json'
+                data: skillData,
+                dataType: 'text/plain'
             }).then(function(data) {
                 console.log("Response received is " + JSON.stringify(data))
             });
