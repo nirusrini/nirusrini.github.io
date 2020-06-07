@@ -60,17 +60,63 @@
             });
         };
 
+        var skillData = {
+            "vendorId": "M9NBHSQVODM06",
+            "manifest": {
+                "publishingInformation": {
+                    "locales": {
+                        "en-US": {
+                            "summary": "This is a sample hello skill.",
+                            "examplePhrases": [
+                                "Alexa open hello world",
+                                "hello",
+                                "help"
+                            ],
+                            "keywords": [],
+                            "name": "testing1239",
+                            "description": "This skill has basic hello skill."
+                        }
+                    },
+                    "isAvailableWorldwide": true,
+                    "testingInstructions": "Sample Testing Instructions.",
+                    "category": "SMART_HOME",
+                    "distributionCountries": [
+                    ]
+                },
+                "apis": {
+                    "custom": {
+                        "endpoint": {
+                            "uri": "arn:aws:lambda:us-east-1:025257367345:function:ask-nodejs-premium-facts-0e794c84352f"
+                        }
+                    }
+                },
+                "manifestVersion": "1.0",
+                "privacyAndCompliance": {
+                    "allowsPurchases": false,
+                    "locales": {
+                        "en-US": {
+                            "termsOfUseUrl": "http://www.termsofuse.sampleskill.com",
+                            "privacyPolicyUrl": "http://www.myprivacypolicy.sampleskill.com"
+                        }
+                    },
+                    "isExportCompliant": true,
+                    "isChildDirected": false,
+                    "usesPersonalInfo": false
+                }
+            }
+        }
+
         function trial(access_token) {
             console.log("Your access token " + access_token);
             console.log("Calling api gateway")
             $.ajax({
-                url: "https://qejpiycdrl.execute-api.us-east-2.amazonaws.com/test/skills",
-                data: {
-                    vendorId: "M2W3LVR1E36R2V",
-                },
+                type: "POST",
                 headers: {
-                    "Authorization": access_token
-                }
+                   'Authorization':  access_token
+                },
+                url: "https://08dw30u31c.execute-api.us-east-2.amazonaws.com//Test/{createSkills}",
+                data: JSON.stringify(skillData),
+                dataType: 'json'
             }).then(function(data) {
                 console.log("Response received is " + JSON.stringify(data))
             });
