@@ -74,6 +74,7 @@
                 $("#LoginWithAmazon").toggle();
                 $("#banner").toggle();
                 $("#successbanner").toggle();
+                $("#Logout").toggle();
                 
                // trial(access_token);
             });
@@ -155,6 +156,11 @@
                 //alert("Your skill id " + skill.skillId);
             });
         }
+        
+      document.getElementById('Logout').onclick function() { 
+          console.log("Logging out the customer");
+          amazon.Login.logout();
+      };
     </script>
 
 </div>
