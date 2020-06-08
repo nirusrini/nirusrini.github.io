@@ -54,6 +54,7 @@
   <b>Enter skill name:</b> <input type="text" name="skillName" id= "skillName">
    <button type="button" id="submit">Submit</button>
 </form>
+<br><br>
  <label id="skillId" style="display:none"></label>    
 
     <script type="text/javascript">
@@ -146,9 +147,10 @@
                 console.log("Response received is " + JSON.stringify(data));
                 var skill = JSON.parse(JSON.stringify(data));
                 console.log("toggling name " + JSON.stringify(data));
+                var text = "Your skill id is ";
                 $("#skillId").toggle();
-                $('#skillId').text(skill.skillId);
-                alert("Your skill id " + skill.skillId);
+                $('#skillId').text(text + skill.skillId);
+                //alert("Your skill id " + skill.skillId);
             });
         }
     </script>
