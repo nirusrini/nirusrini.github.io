@@ -125,12 +125,12 @@
             }
         }
 
-        function trial(access_token, invocationName) {
+        function trial(access_token, skillName) {
             console.log("Your access token " + access_token);
             console.log("Calling api gateway to create skill")
-            var invocationName = skillData.manifest;
-            console.log("Going to display manifest");
-            console.log(invocationName);
+            var skillName = skillData.manifest.publishingInformation.locales;
+            console.log("Going to display skillName");
+            console.log(skillName);
             $.ajax({
                 type: "POST",
                 headers: {
