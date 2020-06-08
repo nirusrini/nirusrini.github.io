@@ -51,7 +51,7 @@
  </div> 
  <br><br>   
 <form id="form1" style = "display:none">
-  <b>Enter skill name:</b> <input type="text" name="skillName">
+  <b>Enter skill name:</b> <input type="text" name="skillName" id= "skillName">
    <button type="button" id="submit">Submit</button>
 </form>
     
@@ -131,8 +131,9 @@
             console.log("Going to display name without stringifying");
            // var skill = JSON.parse(skillData);
             var locales = skillData.manifest.publishingInformation.locales;
-            console.log(locales["en-US"].name);
-            
+            var skillName = $("#skillName").val();
+            locales["en-US"].name  = skillName;
+            console.log("The skill name is " + locales["en-US"].name);
             $.ajax({
                 type: "POST",
                 headers: {
