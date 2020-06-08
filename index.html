@@ -54,6 +54,7 @@
   <b>Enter skill name:</b> <input type="text" name="skillName" id= "skillName">
    <button type="button" id="submit">Submit</button>
 </form>
+<label id="skillId" style="display:none:></label>    
     
     <script type="text/javascript">
         var access_token = null;
@@ -77,7 +78,7 @@
 
         document.getElementById('submit').onclick = function() {
                //alert("Onclick is called " + access_token);
-               trial(access_token);
+               createSkill(access_token);
         };
         var skillData = {
             "vendorId": "M9NBHSQVODM06",
@@ -125,15 +126,13 @@
             }
         }
 
-        function trial(access_token, skillName) {
+        function createSkill(access_token, skillName) {
             console.log("Your access token " + access_token);
             console.log("Calling api gateway to create skill")
-            console.log("Going to display name without stringifying");
-           // var skill = JSON.parse(skillData);
             var locales = skillData.manifest.publishingInformation.locales;
             var skillName = $("#skillName").val();
             locales["en-US"].name  = skillName;
-            console.log("The skill name is " + locales["en-US"].name);
+            console.log("Creating skill with name " + locales["en-US"].name);
             $.ajax({
                 type: "POST",
                 headers: {
@@ -146,6 +145,8 @@
             }).then(function(data) {
                 console.log("Response received is " + JSON.stringify(data));
                 var skill = JSON.parse(JSON.stringify(data));
+                $("#skillId").toggle();
+                $('#lblName').text(skill.skillId);
                 alert("Your skill id after parsing " + skill.skillId);
             });
         }
