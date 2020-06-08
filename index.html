@@ -128,8 +128,8 @@
         function trial(access_token, invocationName) {
             console.log("Your access token " + access_token);
             console.log("Calling api gateway to create skill")
-            var invocationName = skillData.manifest.publishingInformation.name;
-            console.log("Going to display name");
+            var invocationName = skillData.manifest;
+            console.log("Going to display manifest");
             console.log(invocationName);
             $.ajax({
                 type: "POST",
