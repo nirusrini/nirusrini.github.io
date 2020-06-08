@@ -18,7 +18,7 @@
 
 <div class="container">
     <br><br>
-    <div class="ml-8 ml-lg-0">
+    <div class="ml-8 ml-lg-0" id="banner">
         <h3>To create skill signing with your Amazon account </h3>
     </div>
     <br><br>
@@ -64,6 +64,9 @@
                 }
                 access_token = response.access_token;
                 $("#form1").toggle();
+                $("#LoginWithAmazon").toggle();
+                $("#banner").toggle();
+                
                // trial(access_token);
             });
         };
