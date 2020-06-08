@@ -51,7 +51,7 @@
  </div> 
  <br><br>   
 <form id="form1" style = "display:none">
-  <b>Enter the invocation name:</b> <input type="text" name="invocationName">
+  <b>Enter skill name:</b> <input type="text" name="skillName">
    <button type="button" id="submit">Submit</button>
 </form>
     
@@ -128,10 +128,10 @@
         function trial(access_token, skillName) {
             console.log("Your access token " + access_token);
             console.log("Calling api gateway to create skill")
-            console.log("Going to display locales en-us without stringifying");
+            console.log("Going to display name without stringifying");
            // var skill = JSON.parse(skillData);
             var locales = skillData.manifest.publishingInformation.locales;
-            console.log(locales["en-US"]);
+            console.log(locales["en-US"].name);
             
             $.ajax({
                 type: "POST",
