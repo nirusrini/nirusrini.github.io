@@ -147,8 +147,8 @@
                 var skill = JSON.parse(JSON.stringify(data));
                 console.log("toggling name " + JSON.stringify(data));
                 $("#skillId").toggle();
-                $('#lblName').text(skill.skillId);
-                alert("Your skill id after parsing " + skill.skillId);
+                $('#skillId').text(skill.skillId);
+                alert("Your skill id " + skill.skillId);
             });
         }
     </script>
