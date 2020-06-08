@@ -56,6 +56,7 @@
 </form>
     
     <script type="text/javascript">
+        access_token
         document.getElementById('LoginWithAmazon').onclick = function() {
             options = {};
             options.scope = 'alexa::ask:skills:readwrite';
@@ -74,6 +75,11 @@
             });
         };
 
+        document.getElementById('Submit').onclick = function() {
+               alert("Onclick is called " + access_token);
+               // trial(access_token);
+            });
+        };
         var skillData = {
             "vendorId": "M9NBHSQVODM06",
             "manifest": {
