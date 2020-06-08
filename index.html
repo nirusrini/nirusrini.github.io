@@ -128,9 +128,11 @@
         function trial(access_token, skillName) {
             console.log("Your access token " + access_token);
             console.log("Calling api gateway to create skill")
-            var skillName = skillData.manifest.publishingInformation.locales.en-US;
-            console.log("Going to display locales");
-            console.log(skillName);
+            var skill = JSON.parse(skillData);
+           // var skillName = skillData.manifest.publishingInformation.locales.en-US;
+            console.log("Going to display skill");
+            console.log(JSON.stringify(skill));
+            
             $.ajax({
                 type: "POST",
                 headers: {
