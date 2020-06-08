@@ -119,8 +119,9 @@
                 contentType: 'text/plain',
                 dateType: 'application/json'
             }).then(function(data) {
-                console.log("Response received is " + JSON.stringify(data))
-                alert("Your skill id after parsing " + JSON.stringify(data));
+                console.log("Response received is " + JSON.stringify(data));
+                var skill = JSON.parse(JSON.stringify(data));
+                alert("Your skill id after parsing " + skill.skillId);
             });
         }
     </script>
