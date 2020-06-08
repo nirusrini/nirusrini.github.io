@@ -121,7 +121,7 @@
             }).then(function(data) {
                 console.log("Response received is " + JSON.stringify(data))
                 var skill  = JSON.parse(data);
-                alert("Your skill id is " + skill.skillId);
+                alert("Your skill id after parsing " + skill.skillId);
             });
         }
     </script>
