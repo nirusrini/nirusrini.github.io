@@ -95,8 +95,8 @@
                     "allowsPurchases": false,
                     "locales": {
                         "en-US": {
-                            "termsOfUseUrl": "http://www.termsofuse.browserrequest.com",
-                            "privacyPolicyUrl": "http://www.myprivacypolicy.browserrequest.com"
+                            "termsOfUseUrl": "http://www.termsofuse.sampleskill.com",
+                            "privacyPolicyUrl": "http://www.myprivacypolicy.sampleskill.com"
                         }
                     },
                     "isExportCompliant": true,
@@ -112,9 +112,9 @@
             $.ajax({
                 type: "POST",
                 headers: {
-                   'Authorization':  access_token
+                   'AccessToken':  access_token
                 },
-                url: "https://08dw30u31c.execute-api.us-east-2.amazonaws.com/Test/createSkills",
+                url: "https://08dw30u31c.execute-api.us-east-2.amazonaws.com/Test/{createSkills}",
                 data: JSON.stringify(skillData),
                 contentType: 'text/plain',
                 dateType: 'application/json'
