@@ -129,6 +129,7 @@
             console.log("Your access token " + access_token);
             console.log("Calling api gateway to create skill")
             var invocationName = skillData.manifest.publishingInformation.name;
+            console.log("Going to stringify invocation name");
             console.log(JSON.stringify(invocationName));
             $.ajax({
                 type: "POST",
