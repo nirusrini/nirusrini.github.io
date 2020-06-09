@@ -168,9 +168,8 @@
           $("#LoginWithAmazon").toggle(); 
           $("#banner").toggle(); 
           $("#Logout").toggle();  
-          if($("skillId").is(":visible")) {
-             $('#skillId').text('');
-             $("#skillId").toggle(); 
+          $('#skillId').text('');
+          document.getElementById('skillId').style.display = 'none';
           }
       };
     </script>
