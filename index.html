@@ -163,6 +163,8 @@
         document.getElementById('Logout').onclick = function() { 
           console.log("Logging out the customer");
           amazon.Login.logout();
+          $("#form1").toggle();
+          $("#successbanner").toggle();
       };
     </script>
 </div>
