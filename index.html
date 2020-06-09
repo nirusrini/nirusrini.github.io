@@ -168,6 +168,10 @@
           $("#LoginWithAmazon").toggle(); 
           $("#banner").toggle(); 
           $("#Logout").toggle();  
+          if($("skillId").is(":visible")) {
+             $('#skillId').text('');
+             $("#skillId").toggle(); 
+          }
       };
     </script>
 </div>
